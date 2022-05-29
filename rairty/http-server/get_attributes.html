@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+</head>
+<body>
+<div id="result">
+
+</div>
+<script>
+window.onload = function(){
+	xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if(xhttp.readyState == 4 && xhttp.status == 200){
+			var dataoriginal = JSON.parse(xhttp.responseText);
+			var dataoriginallength = dataoriginal.length;
+			var data = [];
+			for(i=0; i<dataoriginallength; i++){
+				var thisattributeslength = dataoriginal[i].attributes.length;
+				for(ii=0; ii<thisattributeslength; ii++){
+					var datalength = data.length;
+					var combinationfound = false;
+					for(iii=0; iii<datalength; iii++){
+						if(dataoriginal[i].attributes[ii].trait_type == data[iii].trait_type && dataoriginal[i].attributes[ii].value == data[iii].value){
+							combinationfound = true;
+							data[iii].count++;
+							break;
+						}
+					}
+					if(!combinationfound){
+						var newobject = {trait_type: dataoriginal[i].attributes[ii].trait_type, value: dataoriginal[i].attributes[ii].value, count: 1};
+						data.push(newobject);
+					}
+				}
+			}
+			var datalength = data.length;
+			var resulthtml = "";
+			for(i=0; i<datalength; i++){
+				resulthtml += data[i].trait_type + ": " + data[i].value + " = " + data[i].count + "<br/>";
+			}
+			document.getElementById("result").innerHTML = resulthtml;
+		}
+	}
+	xhttp.open("GET", "merged.json", true);
+	xhttp.send();
+}
+</script>
+</body>
+</html>
