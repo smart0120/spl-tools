@@ -1,7 +1,7 @@
-import os
-import random
-import csv
-import datetime
+import os  #send commands to terminal/cmd
+import random  #I need to randomize the lists
+import csv  #for csv/spreadsheet manipulation
+import datetime  #I wanted to time stamp the output file
 
 with open("token.txt", "r+") as t:
     lines = t.readlines()
