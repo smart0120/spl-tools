@@ -2,7 +2,7 @@
 Simple python script to airdrop nfts.
 
 Add a list of token addresses held by your signing wallet in [tokens.txt](https://github.com/triiq/nft-airdrop/blob/main/tokens.txt).
-Add a list of wallet addresses in [wallets.txt](https://github.com/triiq/nft-airdrop/blob/main/wallets.txt).
+Add a list of wallet addresses in [airdrop.txt](https://github.com/triiq/nft-airdrop/blob/main/airdrop.txt).
 
 The timestamped resutls will be output to dropResults.csv
 
