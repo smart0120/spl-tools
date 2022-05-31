@@ -27,9 +27,9 @@ if addressCount > tokenCount:
 else:
     count = addressCount - 1
 
-#def Send(token, address): 
-#         command =  'spl-token transfer --fund-recipient --allow-unfunded-recipient '+ token[c] + " 1  " + address[c]
-#         os.system(command)
+def Send(token, address): 
+         command =  'spl-token transfer --fund-recipient --allow-unfunded-recipient '+ token[c] + " 1  " + address[c]
+         os.system(command)
 
 with open('dropResult.csv', 'w') as w:
     w.truncate()
@@ -37,7 +37,7 @@ with open('dropResult.csv', 'w') as w:
 
 c = 0
 while c <= count:
-#    Send(token, address)
+    Send(token, address)
     print(str(c) + " of " + str(count))
     now = datetime.datetime.now()
     now = now.strftime("%Y-%m-%d %H:%M:%S")
