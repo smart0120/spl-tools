@@ -3,7 +3,7 @@ import random  #I need to randomize the lists
 import csv  #for csv/spreadsheet manipulation
 import datetime  #I wanted to time stamp the output file
 
-with open("token.txt", "r+") as t:
+with open("token.txt", "r+") as t:  #open the token 
     lines = t.readlines()
     token = []
     for i in lines:
