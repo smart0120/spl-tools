@@ -28,7 +28,7 @@ json_data = {
     ],
 }
 
-response = requests.post('http://api.mainnet-beta.solana.com', headers=headers, json=json_data)
+response = requests.post('http://api.mainnet-beta.solana.com', headers=headers, json=json_data, timeout=60)
 
 # Note: json_data will not be serialized by requests
 # exactly as it was in the original request.
