@@ -1,7 +1,7 @@
 import os  #send commands to terminal/cmd
-import random  #I need to randomize the lists
 import csv  #for csv/spreadsheet manipulation
 import datetime  #I wanted to time stamp the output file
+import secrets
 
 with open("token.txt", "r+") as t:  #open the file containing token addresses as read/write and store it as variable "t"
     lines = t.readlines()  #read the lines from the token file and store the addresses as <a list?> in variable "lines"
@@ -19,8 +19,8 @@ with open('airdrop.txt', 'r+') as f: #open the file containing receiving address
         address.append(i)  #append item "i" to list "address"
         addressCount = len(address)  #save the number of items in list "address" to variable "addressCount"
 
-random.shuffle(token)  #rearrange the items of list "token"
-random.shuffle(address)  #rearrange the items of list "address"
+secrets.SystemRandom().shuffle(token)  #rearrange the items of list "token"
+secrets.SystemRandom().shuffle(address)  #rearrange the items of list "address"
 
 if addressCount > tokenCount:  #check if the vairable "addressCount" is larger than "tokenCount" and makes sure every token gets matched to an address with addresses left over
     count = tokenCount - 1  #counting for loops starts at 0 not 1, this fixes an error
